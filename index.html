@@ -1,287 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gülnur Kadirhan - Strategic Global Business Leader</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gülnur Kadirhan - Strategic Global Business Leader</title>
 
-    <style>
-        body {
-          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Prioritize Helvetica */
-        }
-        /* Custom scrollbar for a cleaner look */
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-          background: #e0e0e0;
-          border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-          background: #a0a0a0;
-          border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-          background: #808080;
-        }
-        /* Fade-in animation for expanded content */
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.3s ease-out forwards;
-        }
-    </style>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React and Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e0e0e0;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #a0a0a0;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #808080;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+  </style>
 </head>
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
 
-    <script type="text/babel">
-        // Main App component that orchestrates the entire website
-        function App() { // Changed to 'function' as 'export default' is not needed in this single-file context
-          // State to manage the current page ('home', 'about', 'case-studies', 'contact')
-          const [currentPage, setCurrentPage] = React.useState('home');
-          // State to manage the visibility of the mobile navigation menu
-          const [isNavOpen, setIsNavOpen] = React.useState(false);
+  <script type="text/babel">
+    function App() {
+      const [currentPage, setCurrentPage] = React.useState('home');
+      const [isNavOpen, setIsNavOpen] = React.useState(false);
 
-          // Data for Key Impact Areas (rephrased for executive tone and impact)
-          const impactAreasData = [
-            {
-              id: 'strategic-growth',
-              title: 'Strategic Growth & Market Expansion',
-              summary: 'Driving significant market share growth and pioneering global expansion initiatives.',
-              details: [
-                'Orchestrated P&L across 8 manufacturing facilities and 13 sales companies, achieving 10% market share growth and €1.5M annual operational cost reductions.',
-                'Pioneered global pricing and product management systems for 100+ importers, facilitating successful expansion into 3 new regional markets.',
-                'Fostered direct communication channels between manufacturing and commercial teams, accelerating market-responsive product development and decision-making by 30%.',
-                'Secured €2.8M in additional funding for multinational programs, enabling expansion from 12 to 65+ countries.'
-              ]
-            },
-            {
-              id: 'digital-transformation',
-              title: 'Digital & AI/ML Transformation',
-              summary: 'Leading impactful AI/ML initiatives and enterprise-wide digital system implementations.',
-              details: [
-                'Directed AI initiatives that boosted sales productivity by 15%, generating €3.2M in additional annual revenue through enhanced data-driven decision making.',
-                'Spearheaded development and market entry of first-of-kind products in complex regulatory environments (UK & Ireland), leveraging machine learning for adaptation.',
-                'Successfully translated Brexit regulatory requirements into executable processes, ensuring continuous product availability.',
-                'Implemented SAP S4HANA systems and comprehensive training across regional operations, increasing team proficiency to 90% and decreasing onboarding time by 25%.'
-              ]
-            },
-            {
-              id: 'operational-excellence',
-              title: 'Operational Excellence & Optimization',
-              summary: 'Streamlining processes and driving efficiency to enhance organizational performance and retention.',
-              details: [
-                'Implemented DMAIC methodology across manufacturing networks, eliminating 20% of process inefficiencies and reducing time-to-market by 25%.',
-                'Achieved 95% customer retention during organizational restructuring through data-driven improvements as a subject matter expert.',
-                'Coordinated M&A communication strategies, increasing integration efficiency by 30% and preserving €11M in annual revenue.',
-                'Established resource optimization strategies that delivered services to 40% more communities while maintaining administrative overhead below 15%.'
-              ]
-            },
-            {
-              id: 'global-leadership',
-              title: 'Global Program Leadership & Talent Orchestration',
-              summary: 'Building and directing high-performing global teams and complex cross-border initiatives.',
-              details: [
-                'Built global mental health operation from the ground up, directing talent acquisition and deployment of 100+ professionals across 65+ countries.',
-                'Managed €10M+ grant portfolios under European Commission frameworks, ensuring all projects were delivered on budget with full regulatory compliance.',
-                'Created interdisciplinary collaboration models that reduced case resolution time by 35% and decreased staff burnout by 20%.',
-                'Implemented youth initiatives that engaged 15,000+ participants while maintaining administrative costs 12% below comparable programs.'
-              ]
-            }
-          ];
+      const navigateTo = (page) => {
+        setCurrentPage(page);
+        setIsNavOpen(false);
+        window.scrollTo(0, 0);
+      };
 
-          // Function to navigate between pages
-          const navigateTo = (page) => {
-            setCurrentPage(page);
-            setIsNavOpen(false); // Close mobile nav after navigation
-            window.scrollTo(0, 0); // Scroll to top on page change
-          };
-
-          return (
-            <div className="min-h-screen bg-gray-100 font-sans antialiased text-gray-800">
-              {/* Header and Navigation */}
-              <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-                <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
-                  <div className="text-2xl font-bold text-gray-800 cursor-pointer" onClick={() => navigateTo('home')}>
-                    Gülnur Kadirhan
-                  </div>
-                  {/* Mobile navigation toggle */}
-                  <button
-                    className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500"
-                    onClick={() => setIsNavOpen(!isNavOpen)}
-                    aria-label="Toggle navigation"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      {isNavOpen ? (
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                      ) : (
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                      )}
-                    </svg>
-                  </button>
-                  {/* Desktop navigation */}
-                  <ul className="hidden md:flex space-x-8">
-                    {['home', 'about', 'case-studies', 'contact'].map((page) => (
-                      <li key={page}>
-                        <a
-                          href={`#${page}`}
-                          onClick={(e) => { e.preventDefault(); navigateTo(page); }}
-                          className={`text-lg font-medium transition-colors duration-200 ease-in-out ${
-                            currentPage === page ? 'text-gray-800 border-b-2 border-gray-800' : 'text-gray-600 hover:text-gray-800 hover:border-b-2 hover:border-gray-400'
-                          }`}
-                        >
-                          {page === 'home' ? 'Home' : page.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-                {/* Mobile navigation menu */}
-                {isNavOpen && (
-                  <div className="md:hidden bg-white shadow-lg pb-4">
-                    <ul className="flex flex-col items-center space-y-4">
-                      {['home', 'about', 'case-studies', 'contact'].map((page) => (
-                        <li key={page}>
-                          <a
-                            href={`#${page}`}
-                            onClick={(e) => { e.preventDefault(); navigateTo(page); }}
-                            className={`text-lg font-medium transition-colors duration-200 ease-in-out ${
-                              currentPage === page ? 'text-gray-800' : 'text-gray-600 hover:text-gray-800'
-                            }`}
-                          >
-                            {page === 'home' ? 'Home' : page.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </header>
-
-              <main className="pt-20"> {/* Padding to account for fixed header */}
-                {/* Conditional Page Rendering */}
-                {currentPage === 'home' && (
-                  <HomePage navigateTo={navigateTo} />
-                )}
-                {currentPage === 'about' && (
-                  <AboutPage impactAreasData={impactAreasData} />
-                )}
-                {currentPage === 'case-studies' && (
-                  <CaseStudiesPage />
-                )}
-                {currentPage === 'contact' && (
-                  <ContactPage />
-                )}
-              </main>
-
-              {/* Footer */}
-              <footer className="bg-gray-900 text-gray-400 py-8 text-center">
-                <div className="container mx-auto px-6">
-                  <p>&copy; {new Date().getFullYear()} Gülnur Kadirhan. All rights reserved.</p>
-                  <p className="text-sm mt-2">Crafted with React and Tailwind CSS</p>
-                </div>
-              </footer>
-            </div>
-          );
-        }
-
-        // --- Page Components ---
-
-        // Home Page Component
-        function HomePage({ navigateTo }) {
-          return (
-            <>
-              {/* Self Intro Section - Most Prominent */}
-              <section id="home-intro" className="py-24 bg-gray-950 text-white text-center rounded-b-lg shadow-xl"> {/* Increased padding */}
-                <div className="container mx-auto px-6 max-w-4xl">
-                  <h1 className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">Gülnur Kadirhan</h1>
-                  <p className="text-2xl md:text-3xl font-light mb-6">Strategic Global Business Leader</p>
-                  <p className="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed opacity-90">
-                    I empower complex international organizations to achieve sustainable growth by spearheading digital transformation, orchestrating market expansion, and optimizing operations. My leadership translates vision into tangible, P&L-impacting results through data-driven strategies and innovative technology adoption.
-                  </p>
-                  <div className="mt-10 flex justify-center space-x-6">
-                    <button
-                      onClick={() => navigateTo('about')}
-                      className="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105 text-lg"
+      return (
+        <div className="min-h-screen bg-gray-100 font-sans antialiased text-gray-800">
+          <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+            <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
+              <div className="text-2xl font-bold text-gray-800 cursor-pointer" onClick={() => navigateTo('home')}>
+                Gülnur Kadirhan
+              </div>
+              <button
+                className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
+                onClick={() => setIsNavOpen(!isNavOpen)}
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isNavOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                  )}
+                </svg>
+              </button>
+              <ul className="hidden md:flex space-x-8">
+                {['home', 'about', 'contact'].map((page) => (
+                  <li key={page}>
+                    <a
+                      href={`#${page}`}
+                      onClick={(e) => { e.preventDefault(); navigateTo(page); }}
+                      className={`text-lg font-medium ${currentPage === page ? 'text-gray-800 border-b-2 border-gray-800' : 'text-gray-600 hover:text-gray-800'}`}
                     >
-                      Learn More About My Impact
-                    </button>
-                    <a href="mailto:gulnur.kadirhan@icloud.com" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-white hover:text-gray-900 transition-colors duration-300 transform hover:scale-105 text-lg">
-                      Connect Now
+                      {page.charAt(0).toUpperCase() + page.slice(1)}
                     </a>
-                  </div>
-                </div>
-              </section>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            {isNavOpen && (
+              <div className="md:hidden bg-white shadow-lg pb-4">
+                <ul className="flex flex-col items-center space-y-4">
+                  {['home', 'about', 'contact'].map((page) => (
+                    <li key={page}>
+                      <a
+                        href={`#${page}`}
+                        onClick={(e) => { e.preventDefault(); navigateTo(page); }}
+                        className="text-lg font-medium text-gray-600 hover:text-gray-800"
+                      >
+                        {page.charAt(0).toUpperCase() + page.slice(1)}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </header>
 
-              {/* Who, Why, How Section - Standard Importance */}
-              <section id="who-why-how" className="py-16 bg-gray-50">
-                <div className="container mx-auto px-6">
-                  <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Who, Why, & How I Deliver Value</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center">
-                      <h3 className="text-2xl font-semibold text-gray-800 mb-4">Who I Am</h3>
-                      <p className="text-gray-700 text-base">
-                        A seasoned global business leader with a decade of experience driving digital transformation and operational excellence across diverse international sectors. I thrive in complex, multi-site environments.
-                      </p>
-                    </div>
-                    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center">
-                      <h3 className="text-2xl font-semibold text-gray-800 mb-4">Why Partner With Me</h3>
-                      <p className="text-gray-700 text-base">
-                        I bring a unique blend of strategic vision, hands-on implementation, and a proven track record of delivering measurable P&L improvements and sustainable growth through data-driven decisions.
-                      </p>
-                    </div>
-                    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center">
-                      <h3 className="text-2xl font-semibold text-gray-800 mb-4">How I Work</h3>
-                      <p className="text-gray-700 text-base">
-                        Through meticulous process optimization, innovative technology adoption (including AI/ML), and cross-functional leadership, I translate strategic objectives into impactful operational realities.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
+          <main className="pt-20">
+            {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
+            {currentPage === 'about' && <AboutPage />}
+            {currentPage === 'contact' && <ContactPage />}
+          </main>
 
-              {/* Recommendations Section - Standard Importance */}
-              <section id="recommendations" className="py-16 bg-gray-100">
-                <div className="container mx-auto px-6">
-                  <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">What Leaders Say</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-                      <p className="text-gray-700 italic mb-4">"Gülnur's ability to navigate complex global initiatives and deliver tangible results is truly exceptional. Her strategic foresight combined with her execution prowess makes her an invaluable asset to any organization."</p>
-                      <p className="text-gray-800 font-semibold">- [Client/Colleague Name], [Title/Company]</p>
-                    </div>
-                    <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-                      <p className="text-gray-700 italic mb-4">"She consistently transforms challenges into opportunities, particularly in digital transformation. Her leadership in implementing AI/ML solutions significantly boosted our operational efficiency and revenue."</p>
-                      <p className="text-gray-800 font-semibold">- [Client/Colleague Name], [Title/Company]</p>
-                    </div>
-                  </div>
-                  <p className="text-center text-gray-600 mt-10">More recommendations available upon request.</p>
-                </div>
-              </section>
-            </>
-          );
-        }
+          <footer className="bg-gray-900 text-gray-400 py-8 text-center">
+            <p>&copy; {new Date().getFullYear()} Gülnur Kadirhan. All rights reserved.</p>
+            <p className="text-sm mt-2">Crafted with React and Tailwind CSS</p>
+          </footer>
+        </div>
+      );
+    }
 
-        // About Page Component
-        function AboutPage({ impactAreasData }) {
-          // State to manage which impact area card is expanded
-          const [expandedImpactArea, setExpandedImpactArea] = React.useState(null);
+    function HomePage({ navigateTo }) {
+      return (
+        <section className="py-24 bg-gray-950 text-white text-center rounded-b-lg">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <h1 className="text-5xl font-extrabold mb-4">Gülnur Kadirhan</h1>
+            <p className="text-2xl mb-6">Strategic Global Business Leader</p>
+            <p className="text-lg opacity-90 mb-6">
+              I empower complex international organizations to achieve sustainable growth by spearheading digital transformation, orchestrating market expansion, and optimizing operations.
+            </p>
+            <div className="mt-6 flex justify-center space-x-6">
+              <button onClick={() => navigateTo('about')} className="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-100">
+                Learn More About My Impact
+              </button>
+              <a href="mailto:gulnur.kadirhan@icloud.com" className="border border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-gray-900">
+                Connect Now
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    }
 
-          // Toggle expanded state for impact area cards
-          const toggleImpactArea = (id) => {
-            setExpandedImpactArea(expandedImpactArea === id ? null : id);
-          };
+    function AboutPage() {
+      return (
+        <section className="py-16 bg-white text-gray-800 text-center">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <h2 className="text-4xl font-bold mb-6">About Me</h2>
+            <p className="text-lg leading-relaxed">
+              I'm a seasoned global business leader with a decade of experience across digital transformation, market expansion, and operational optimization. I thrive in complex systems and build bridges between data, people, and processes.
+            </p>
+          </div>
+        </section>
+      );
+    }
 
-          return (
-            <>
-              {/* About Me / Profile Section - Standard Importance */}
-              <section id="about-intro" className="py-16 bg-gray-900 text-white">
-                <div className="container mx-auto px-6 max-w-4xl">
-                  <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">About Gülnur Kadirhan</h2>
-                  <p className="text-lg
+    function ContactPage() {
+      return (
+        <section className="py-16 bg-gray-50 text-center">
+          <div className="container mx-auto px-6 max-w-xl">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Let's Connect</h2>
+            <p className="text-lg text-gray-700 mb-4">Email me directly at:</p>
+            <a href="mailto:gulnur.kadirhan@icloud.com" className="text-blue-600 text-lg font-semibold">gulnur.kadirhan@icloud.com</a>
+          </div>
+        </section>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
