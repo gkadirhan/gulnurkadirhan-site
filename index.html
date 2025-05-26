@@ -3,116 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gülnur Kadirhan - Strategic Global Business Leader</title>
-
+  <title>Gülnur Kadirhan – Strategic Global Business Leader</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
   <style>
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #e0e0e0; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb { background: #a0a0a0; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #808080; }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+    .fade-in { animation: fadeIn 0.5s ease-out; }
   </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
   <div id="root"></div>
   <script type="text/babel">
-    const pages = ['home', 'about', 'case-studies', 'articles', 'contact'];
     function App() {
-      const [currentPage, setCurrentPage] = React.useState('home');
-      const [isNavOpen, setIsNavOpen] = React.useState(false);
-      const navigateTo = (page) => { setCurrentPage(page); setIsNavOpen(false); window.scrollTo(0, 0); };
-
+      const [page, setPage] = React.useState('home');
       return (
-        <div className="min-h-screen bg-gray-100 text-gray-800">
-          <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-            <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-              <div className="text-2xl font-bold cursor-pointer" onClick={() => navigateTo('home')}>Gülnur Kadirhan</div>
-              <button className="md:hidden p-2" onClick={() => setIsNavOpen(!isNavOpen)}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isNavOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />}
-                </svg>
-              </button>
-              <ul className="hidden md:flex space-x-6">
-                {pages.map((page) => (
-                  <li key={page}><a href={`#${page}`} onClick={e => {e.preventDefault(); navigateTo(page);}}
-                    className={`capitalize font-medium ${currentPage === page ? 'text-gray-900 border-b-2 border-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>{page.replace('-', ' ')}</a></li>
-                ))}
-              </ul>
+        <div>
+          <header className="fixed top-0 left-0 right-0 bg-white shadow z-50 py-4 px-6 flex justify-between items-center">
+            <h1 className="text-xl font-bold cursor-pointer" onClick={() => setPage('home')}>Gülnur Kadirhan</h1>
+            <nav className="space-x-4 hidden md:block">
+              {['home','about','case-studies','articles','contact'].map(p => (
+                <button key={p} onClick={() => setPage(p)} className={`capitalize hover:underline ${page === p ? 'font-semibold text-black' : 'text-gray-600'}`}>{p.replace('-', ' ')}</button>
+              ))}
             </nav>
-            {isNavOpen && (
-              <div className="md:hidden bg-white shadow-lg pb-4">
-                <ul className="flex flex-col items-center space-y-4">
-                  {pages.map((page) => (
-                    <li key={page}><a href={`#${page}`} onClick={e => {e.preventDefault(); navigateTo(page);}} className="capitalize text-gray-600 hover:text-gray-900">{page.replace('-', ' ')}</a></li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </header>
 
-          <main className="pt-24">
-            {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
-            {currentPage === 'about' && <AboutPage />}
-            {currentPage === 'case-studies' && <CaseStudiesPage />}
-            {currentPage === 'articles' && <ArticlesPage />}
-            {currentPage === 'contact' && <ContactPage />}
+          <main className="pt-24 px-6 max-w-5xl mx-auto fade-in">
+            {page === 'home' && <Home />}
+            {page === 'about' && <About />}
+            {page === 'case-studies' && <CaseStudies />}
+            {page === 'articles' && <Articles />}
+            {page === 'contact' && <Contact />}
           </main>
 
-          <footer className="bg-gray-900 text-white py-6 text-center">
-            <p>&copy; {new Date().getFullYear()} Gülnur Kadirhan. All rights reserved.</p>
+          <footer className="mt-16 text-center text-sm text-gray-500 py-6">
+            © {new Date().getFullYear()} Gülnur Kadirhan. All rights reserved.
           </footer>
         </div>
       );
     }
 
-    const HomePage = ({ navigateTo }) => (
-      <section className="text-center px-6">
-        <h1 className="text-4xl font-bold mb-4">Strategic Global Business Leader</h1>
-        <p className="text-lg mb-4">Empowering complex international organizations to drive sustainable growth through digital transformation and operational excellence.</p>
-        <button onClick={() => navigateTo('about')} className="px-6 py-2 bg-gray-800 text-white rounded">Discover More</button>
+    const Home = () => (
+      <section className="text-center">
+        <h2 className="text-4xl font-extrabold mb-4">Strategic Global Business Leadership</h2>
+        <p className="text-lg max-w-2xl mx-auto mb-6">
+          I empower complex organizations to scale sustainably through digital transformation, operational redesign, and AI-driven market expansion.
+        </p>
+        <div className="mt-6 flex justify-center gap-4">
+          <button onClick={() => window.scrollTo({top: 900, behavior: 'smooth'})} className="px-6 py-2 bg-black text-white rounded-full">Discover My Impact</button>
+          <a href="mailto:gulnur.kadirhan@icloud.com" className="px-6 py-2 border border-black rounded-full">Get in Touch</a>
+        </div>
+        <div className="mt-16 grid md:grid-cols-3 gap-6 text-left">
+          <div className="bg-white shadow rounded-lg p-6">
+            <h3 className="font-semibold text-xl mb-2">Who I Am</h3>
+            <p>A global P&L leader experienced in AI/ML transformation, cross-border operations, and large-scale program delivery in 65+ countries.</p>
+          </div>
+          <div className="bg-white shadow rounded-lg p-6">
+            <h3 className="font-semibold text-xl mb-2">Why It Matters</h3>
+            <p>I bridge vision and execution—driving enterprise resilience through strategy, technology, and people-centered systems.</p>
+          </div>
+          <div className="bg-white shadow rounded-lg p-6">
+            <h3 className="font-semibold text-xl mb-2">How I Work</h3>
+            <p>Agile. Strategic. Data-driven. Fluent in systems thinking and stakeholder orchestration across continents.</p>
+          </div>
+        </div>
+        <div className="mt-20">
+          <h3 className="text-2xl font-bold mb-4">Testimonials</h3>
+          <blockquote className="italic text-gray-700 max-w-xl mx-auto">“Gülnur consistently transforms complexity into clarity and delivers excellence across borders.” – Colleague, EU Public Sector</blockquote>
+        </div>
       </section>
     );
 
-    const AboutPage = () => (
-      <section className="px-6 max-w-4xl mx-auto text-gray-800">
-        <h2 className="text-3xl font-bold mb-4">About Gülnur</h2>
-        <p className="mb-4">Strategic global business leader with a proven record across sectors and geographies. MA in Communication Management. Delivered digital transformation, AI/ML initiatives, operational redesign and market expansions for organizations in over 65 countries.</p>
-        <a className="text-blue-600 underline" href="/cv.pdf" download>Download Résumé</a>
+    const About = () => (
+      <section>
+        <h2 className="text-3xl font-bold mb-6">About Gülnur Kadirhan</h2>
+        <p className="mb-4">I'm a multilingual business leader with 10+ years of experience spanning mental health operations, fintech AI implementation, and European grant strategy. With a background in communication and public systems, I’ve driven results at Nordea, Kverneland (Kubota), Linde Gas, and NGOs alike.</p>
+        <ul className="list-disc ml-6 space-y-2">
+          <li>AI/ML Transformation | SAP S4HANA | Global Pricing & Product</li>
+          <li>65+ countries | €10M+ managed | Regulatory navigation</li>
+          <li>MA – Communication Management, BFM, Tallinn University</li>
+        </ul>
+        <div className="mt-6">
+          <a href="/cv.pdf" download className="text-blue-600 underline">Download my full CV</a>
+        </div>
       </section>
     );
 
-    const CaseStudiesPage = () => (
-      <section className="px-6 max-w-4xl mx-auto">
+    const CaseStudies = () => (
+      <section>
         <h2 className="text-3xl font-bold mb-4">Case Studies</h2>
-        <p className="mb-4">Coming soon: stories of global transformation, regulatory breakthroughs, and AI-led operational enhancements led by Gülnur Kadirhan.</p>
+        <p className="mb-2">Selected transformations and achievements:</p>
+        <ul className="list-disc ml-6 space-y-2">
+          <li>Scaled operations from 12 to 65 countries while leading mental health strategy across Europe & MENA</li>
+          <li>Introduced global SAP rollout with 90% proficiency and 25% onboarding reduction</li>
+          <li>Executed AI-led product launches in the UK & Ireland post-Brexit</li>
+          <li>Reduced €1.5M in costs while growing P&L across 8 factories and 13 sales teams</li>
+        </ul>
       </section>
     );
 
-    const ArticlesPage = () => (
-      <section className="px-6 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4">Articles</h2>
-        <p className="mb-4">Curated insights on leadership, transformation, and resilience in global organizations. (To be added.)</p>
+    const Articles = () => (
+      <section>
+        <h2 className="text-3xl font-bold mb-4">Articles & Ideas</h2>
+        <p className="mb-4">Insights from a decade across public and private transformation:</p>
+        <ul className="list-disc ml-6 space-y-2">
+          <li>“Designing Global Programs for People, Not Just KPIs”</li>
+          <li>“Operational Elegance: From Process Hell to Flow State”</li>
+          <li>“Why Regulatory Complexity Is a Catalyst”</li>
+          <li>(Coming soon)</li>
+        </ul>
       </section>
     );
 
-    const ContactPage = () => (
-      <section className="px-6 max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">Contact</h2>
-        <p>Email: <a href="mailto:gulnur.kadirhan@icloud.com" className="text-blue-600">gulnur.kadirhan@icloud.com</a></p>
-        <p className="mt-2">Available for consulting, advisory, and strategic collaboration globally.</p>
+    const Contact = () => (
+      <section className="text-center">
+        <h2 className="text-3xl font-bold mb-4">Let’s Connect</h2>
+        <p className="mb-4">For advisory, speaking, or project collaboration opportunities:</p>
+        <a href="mailto:gulnur.kadirhan@icloud.com" className="text-blue-600 underline text-lg">gulnur.kadirhan@icloud.com</a>
       </section>
     );
 
@@ -120,3 +134,4 @@
   </script>
 </body>
 </html>
+
