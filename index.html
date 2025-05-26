@@ -1,137 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gülnur Kadirhan – Strategic Global Business Leader</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <style>
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in { animation: fadeIn 0.5s ease-out; }
-  </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
-  <div id="root"></div>
-  <script type="text/babel">
-    function App() {
-      const [page, setPage] = React.useState('home');
-      return (
-        <div>
-          <header className="fixed top-0 left-0 right-0 bg-white shadow z-50 py-4 px-6 flex justify-between items-center">
-            <h1 className="text-xl font-bold cursor-pointer" onClick={() => setPage('home')}>Gülnur Kadirhan</h1>
-            <nav className="space-x-4 hidden md:block">
-              {['home','about','case-studies','articles','contact'].map(p => (
-                <button key={p} onClick={() => setPage(p)} className={`capitalize hover:underline ${page === p ? 'font-semibold text-black' : 'text-gray-600'}`}>{p.replace('-', ' ')}</button>
-              ))}
-            </nav>
-          </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gülnur Kadirhan — Strategic Clarity in Motion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      canvas#bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 font-sans">
+    <canvas id="bg"></canvas>
 
-          <main className="pt-24 px-6 max-w-5xl mx-auto fade-in">
-            {page === 'home' && <Home />}
-            {page === 'about' && <About />}
-            {page === 'case-studies' && <CaseStudies />}
-            {page === 'articles' && <Articles />}
-            {page === 'contact' && <Contact />}
-          </main>
-
-          <footer className="mt-16 text-center text-sm text-gray-500 py-6">
-            © {new Date().getFullYear()} Gülnur Kadirhan. All rights reserved.
-          </footer>
-        </div>
-      );
-    }
-
-    const Home = () => (
-      <section className="text-center">
-        <h2 className="text-4xl font-extrabold mb-4">Strategic Global Business Leadership</h2>
-        <p className="text-lg max-w-2xl mx-auto mb-6">
-          I empower complex organizations to scale sustainably through digital transformation, operational redesign, and AI-driven market expansion.
+    <!-- Hero / Void -->
+    <section class="min-h-screen flex items-center justify-center text-center px-6">
+      <div>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight">I work with clarity.</h1>
+        <p class="mt-6 text-xl md:text-2xl max-w-3xl mx-auto text-gray-600">
+          In systems, in language, in transformation. I serve where precision and depth are needed most.
         </p>
-        <div className="mt-6 flex justify-center gap-4">
-          <button onClick={() => window.scrollTo({top: 900, behavior: 'smooth'})} className="px-6 py-2 bg-black text-white rounded-full">Discover My Impact</button>
-          <a href="mailto:gulnur.kadirhan@icloud.com" className="px-6 py-2 border border-black rounded-full">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- Earth / About -->
+    <section class="px-6 py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-semibold mb-6">Where I Come From</h2>
+        <p class="text-lg leading-relaxed">
+          Born at the intersection of clarity and care, I’ve worked in high-stakes environments across the nonprofit and corporate sectors. From leading operations in fragmented ecosystems to rebuilding structures with ethical backbone, my practice is rooted in the belief that sustainable systems are built on inner coherence.
+        </p>
+      </div>
+    </section>
+
+    <!-- Water / Method -->
+    <section class="px-6 py-20">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-4xl font-semibold mb-6">How I Work</h2>
+          <ul class="list-disc list-inside text-lg space-y-3">
+            <li>I map organizational complexity into transparent structures.</li>
+            <li>I listen across layers and disciplines to realign intent with output.</li>
+            <li>I build frameworks that are intuitive, humane, and long-lasting.</li>
+          </ul>
         </div>
-        <div className="mt-16 grid md:grid-cols-3 gap-6 text-left">
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="font-semibold text-xl mb-2">Who I Am</h3>
-            <p>A global P&L leader experienced in AI/ML transformation, cross-border operations, and large-scale program delivery in 65+ countries.</p>
-          </div>
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="font-semibold text-xl mb-2">Why It Matters</h3>
-            <p>I bridge vision and execution—driving enterprise resilience through strategy, technology, and people-centered systems.</p>
-          </div>
-          <div className="bg-white shadow rounded-lg p-6">
-            <h3 className="font-semibold text-xl mb-2">How I Work</h3>
-            <p>Agile. Strategic. Data-driven. Fluent in systems thinking and stakeholder orchestration across continents.</p>
-          </div>
+        <div>
+          <p class="text-lg italic">
+            "Gülnur is a systems oracle. She can sense what’s stuck, what wants to move, and where the deep clarity lives."
+          </p>
+          <p class="text-sm mt-2 text-gray-500">— Collaborator, Policy & Ops Director</p>
         </div>
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold mb-4">Testimonials</h3>
-          <blockquote className="italic text-gray-700 max-w-xl mx-auto">“Gülnur consistently transforms complexity into clarity and delivers excellence across borders.” – Colleague, EU Public Sector</blockquote>
+      </div>
+    </section>
+
+    <!-- Fire / Invitation -->
+    <section class="px-6 py-20 bg-gray-900 text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6">Let’s Build Something Precise</h2>
+        <p class="text-lg mb-8">
+          I’m open to collaborations, contracts, and consultancies where the aim is transformation grounded in truth.
+        </p>
+        <a href="mailto:hello@gulnurkadirhan.com" class="inline-block bg-white text-gray-900 px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-200">
+          Reach Out
+        </a>
+      </div>
+    </section>
+
+    <!-- Wind / Contact -->
+    <section class="px-6 py-20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold mb-4">Presence</h2>
+        <p class="text-gray-700 text-lg">
+          Currently based in Europe. Working across timezones. <br />
+          Fluent in strategic language, and sometimes silence.
+        </p>
+        <div class="mt-6">
+          <a href="mailto:hello@gulnurkadirhan.com" class="text-xl text-blue-600 underline">hello@gulnurkadirhan.com</a>
         </div>
-      </section>
-    );
+      </div>
+    </section>
 
-    const About = () => (
-      <section>
-        <h2 className="text-3xl font-bold mb-6">About Gülnur Kadirhan</h2>
-        <p className="mb-4">I'm a multilingual business leader with 10+ years of experience spanning mental health operations, fintech AI implementation, and European grant strategy. With a background in communication and public systems, I’ve driven results at Nordea, Kverneland (Kubota), Linde Gas, and NGOs alike.</p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li>AI/ML Transformation | SAP S4HANA | Global Pricing & Product</li>
-          <li>65+ countries | €10M+ managed | Regulatory navigation</li>
-          <li>MA – Communication Management, BFM, Tallinn University</li>
-        </ul>
-        <div className="mt-6">
-          <a href="/cv.pdf" download className="text-blue-600 underline">Download my full CV</a>
-        </div>
-      </section>
-    );
+    <footer class="text-center text-sm text-gray-400 py-6">
+      &copy; 2025 Gülnur Kadirhan. Crafted with intentionality.
+    </footer>
 
-    const CaseStudies = () => (
-      <section>
-        <h2 className="text-3xl font-bold mb-4">Case Studies</h2>
-        <p className="mb-2">Selected transformations and achievements:</p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li>Scaled operations from 12 to 65 countries while leading mental health strategy across Europe & MENA</li>
-          <li>Introduced global SAP rollout with 90% proficiency and 25% onboarding reduction</li>
-          <li>Executed AI-led product launches in the UK & Ireland post-Brexit</li>
-          <li>Reduced €1.5M in costs while growing P&L across 8 factories and 13 sales teams</li>
-        </ul>
-      </section>
-    );
+    <!-- Background Animation -->
+    <script>
+      const canvas = document.getElementById('bg');
+      const ctx = canvas.getContext('2d');
+      let w, h;
 
-    const Articles = () => (
-      <section>
-        <h2 className="text-3xl font-bold mb-4">Articles & Ideas</h2>
-        <p className="mb-4">Insights from a decade across public and private transformation:</p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li>“Designing Global Programs for People, Not Just KPIs”</li>
-          <li>“Operational Elegance: From Process Hell to Flow State”</li>
-          <li>“Why Regulatory Complexity Is a Catalyst”</li>
-          <li>(Coming soon)</li>
-        </ul>
-      </section>
-    );
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
 
-    const Contact = () => (
-      <section className="text-center">
-        <h2 className="text-3xl font-bold mb-4">Let’s Connect</h2>
-        <p className="mb-4">For advisory, speaking, or project collaboration opportunities:</p>
-        <a href="mailto:gulnur.kadirhan@icloud.com" className="text-blue-600 underline text-lg">gulnur.kadirhan@icloud.com</a>
-      </section>
-    );
+      const circles = Array.from({ length: 100 }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+      }));
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
-</body>
+      function animate() {
+        ctx.clearRect(0, 0, w, h);
+        for (let c of circles) {
+          c.x += c.dx;
+          c.y += c.dy;
+          if (c.x < 0 || c.x > w) c.dx *= -1;
+          if (c.y < 0 || c.y > h) c.dy *= -1;
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0,0,0,0.05)';
+          ctx.fill();
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+  </body>
 </html>
-
