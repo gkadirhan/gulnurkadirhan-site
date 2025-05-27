@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gülnur Kadirhan — Strategic Clarity in Motion</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
       html {
         scroll-behavior: smooth;
@@ -18,11 +19,25 @@
         height: 100%;
         pointer-events: none;
       }
+      h1, h2, h3 {
+        font-family: 'EB Garamond', serif;
+      }
     </style>
   </head>
-  <body class="bg-white text-gray-900 font-sans">
+  <body class="bg-white text-gray-900 font-serif">
     <canvas id="bg"></canvas>
 
+    <!-- Navigation -->
+    <nav class="text-center py-4 text-sm text-gray-500">
+      <a href="index.html" class="mx-3 hover:text-black">Home</a>
+      <a href="about.html" class="mx-3 hover:text-black">About</a>
+      <a href="work.html" class="mx-3 hover:text-black">Work</a>
+      <a href="voice.html" class="mx-3 hover:text-black">Voice</a>
+      <a href="now.html" class="mx-3 hover:text-black">Now</a>
+      <a href="contact.html" class="mx-3 hover:text-black">Contact</a>
+    </nav>
+
+    <!-- Hero -->
     <section class="min-h-screen flex items-center justify-center text-center px-6">
       <div>
         <h1 class="text-5xl md:text-7xl font-bold tracking-tight">I work with clarity.</h1>
@@ -32,15 +47,18 @@
       </div>
     </section>
 
+    <!-- About -->
     <section class="px-6 py-20 bg-gray-50">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-6">Where I Come From</h2>
-        <p class="text-lg leading-relaxed">
-          Born at the intersection of clarity and care, I’ve worked in high-stakes environments across the nonprofit and corporate sectors. From leading operations in fragmented ecosystems to rebuilding structures with ethical backbone, my practice is rooted in the belief that sustainable systems are built on inner coherence.
-        </p>
-      </div>
-    </section>
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl font-semibold mb-6 text-gray-700">Where I Come From</h2>
+    <hr class="my-6 border-gray-300 w-12 mx-auto" />
+    <p class="text-lg leading-relaxed italic text-gray-800">
+      I’ve worked across sectors and crises — helping organizations realign their architecture with their soul. My work is grounded, iterative, and never ornamental. I move where the hidden patterns need revealing.
+    </p>
+  </div>
+</section>
 
+    <!-- Method -->
     <section class="px-6 py-20">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-4xl font-semibold mb-6">How I Work</h2>
@@ -52,47 +70,62 @@
       </div>
     </section>
 
+    <!-- Invitation -->
     <section class="px-6 py-20 bg-gray-900 text-white text-center">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-4xl font-bold mb-6">Let’s Build Something Precise</h2>
-        <p class="text-lg mb-8">
-          I’m open to collaborations, contracts, and consultancies where the aim is transformation grounded in truth.
+        <h2 class="text-4xl font-bold mb-6">Precision is a Practice</h2>
+        <p class="text-lg max-w-xl mx-auto">
+          This site is a quiet window into how I think and build. If something resonates — whether an idea, a project, or a question — the door is open.
         </p>
-        <a href="mailto:hello@gulnurkadirhan.com" class="inline-block bg-white text-gray-900 px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-200">
-          Reach Out
-        </a>
       </div>
     </section>
 
+    <!-- Presence -->
     <section class="px-6 py-20">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-semibold mb-4">Presence</h2>
         <p class="text-gray-700 text-lg">
-          Currently based in Europe. Working across timezones. <br />
-          Fluent in strategic language, and sometimes silence.
+          Currently based in Europe. Working across timezones. Fluent in strategic language, and sometimes silence.
         </p>
-        <div class="mt-6">
-          <a href="mailto:hello@gulnurkadirhan.com" class="text-xl text-blue-600 underline">hello@gulnurkadirhan.com</a>
-        </div>
+        <div class="mt-6 flex justify-center">
+  <a href="mailto:gulnur.kadirhan@icloud.com" class="flex items-center gap-2 text-gray-700 hover:text-black transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 12H8m8 0l-4-4m4 4l-4 4m-2-4H4m16 0h-4" />
+    </svg>
+    <span>Email me</span>
+  </a>
+</div>
       </div>
     </section>
 
-    <!-- Partners -->
+    <!-- Collaborations -->
     <section class="px-6 py-20 bg-gray-100">
       <div class="max-w-5xl mx-auto text-center">
         <h2 class="text-3xl font-semibold mb-6">Previous Collaborations</h2>
-        <p class="text-lg text-gray-700 mb-12">Organizations and initiatives I’ve worked with:</p>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center justify-items-center">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/UNDP_logo.svg" alt="UNDP" class="h-10 object-contain">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Mozilla_Foundation_logo%2C_2017.svg" alt="Mozilla Foundation" class="h-8 object-contain">
-          <img src="https://upload.wikimedia.org/wikipedia/en/f/f3/TPF_Logo.png" alt="Turkish Philanthropy Funds" class="h-10 object-contain">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/European_Cultural_Foundation_logo.svg" alt="European Cultural Foundation" class="h-10 object-contain">
-        </div>
-        <p class="text-sm text-gray-500 mt-6">...and grassroots networks across borders and causes.</p>
+        <p class="text-lg text-gray-700 mb-8">Organizations I’ve partnered with:</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center justify-items-center text-gray-700 font-semibold text-sm tracking-wide">
+  <div>Linde</div>
+  <div>AGA</div>
+  <div>Equinox</div>
+  <div>Aker Solutions</div>
+  <div>Nordea Bank</div>
+  <div>European Central Bank</div>
+  <div>Kverneland Group</div>
+  <div>Kubota Corporation</div>
+  <div>SAP</div>
+  <div>Tallinn Municipality</div>
+  <div>Governance Agencies – Harju & Ida-Viru</div>
+  <div>European Commission</div>
+</div>
+        <p class="text-sm text-gray-500 mt-6">...and several grassroots movements and cross-sectoral networks.</p>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="text-center text-sm text-gray-400 py-6">
+  <hr class="mb-4 w-12 mx-auto border-gray-300" />
+  <p class="italic text-gray-500 mb-2">“There is geometry in the humming of the strings, there is music in the spacing of the spheres.”</p>
+
       &copy; 2025 Gülnur Kadirhan. Crafted with intentionality.
     </footer>
 
@@ -134,4 +167,3 @@
     </script>
   </body>
 </html>
-
